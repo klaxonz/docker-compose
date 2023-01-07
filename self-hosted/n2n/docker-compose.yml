@@ -1,0 +1,13 @@
+versio: '3'
+services:
+  portainer:
+    image: jonnyan404/n2n-v3
+    container_name: supernode
+    restart: unless-stopped
+    environment:
+      - START_TYPE=supernode
+    volumes:
+      - ./config:/app/config
+    ports:
+      - 7777:7777
+      - 7777:7777/udp
