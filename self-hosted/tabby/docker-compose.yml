@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  tabby-web:
+    image: ghcr.io/eugeny/tabby-web:latest
+    container_name: tabby-web
+    restart: always
+    ports:
+      - '15004:8000'
+    volumes:
+      - ./data:/app-dist
+    environment:
+      - DATABASE_URL=sqlite:////app-dist/db.sqlite3
+      - PORT=8000
+      - DEBUG=False
+      - APP_DIST_STORAGE=file:///app-dist
+      - SOCIAL_AUTH_GITHUB_KEY=your key
+      - SOCIAL_AUTH_GITHUB_SECRET=your secret
+      - HTTP_HOST=your host

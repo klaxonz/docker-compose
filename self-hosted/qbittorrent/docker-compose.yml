@@ -1,0 +1,25 @@
+version: "3"
+services:
+  qbittorrent:
+    image: nevinee/qbittorrent
+    container_name: qbittorrent
+    restart: always
+    tty: true
+    network_mode: bridge
+    hostname: qbitorrent
+    volumes:
+      - ./data:/data
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Asia/Shanghai # 你的时区
+      - UMASK_SET=022
+      - QB_USERNAME=qbittorrent
+      - QB_PASSWORD=qbittorrent
+      - WEBUI_PORT=15010   # WEBUI控制端口，可自定义
+      - BT_PORT=34567     # BT监听端口，可自定义
+      - TZ=Asia/Shanghai  # 时区
+    ports:
+      - 15010:15010        # 冒号左右一致，必须同WEBUI_PORT
+      - 34567:34567      # 冒号左右一致，必须同BT_PORT
+      - 34567:34567/udp  # 冒号左右一致，必须同BT_PORT
