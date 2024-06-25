@@ -1,4 +1,5 @@
-versio: '3'
+version: '3'
+
 services:
   portainer:
     image: jonnyan404/n2n-v3
@@ -9,5 +10,5 @@ services:
     volumes:
       - ./config:/app/config
     ports:
-      - 7777:7777
-      - 7777:7777/udp
+      - "7777:7777"
+      - "7777:7777/udp"

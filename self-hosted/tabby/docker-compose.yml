@@ -4,9 +4,9 @@ services:
   tabby-web:
     image: ghcr.io/eugeny/tabby-web:latest
     container_name: tabby-web
-    restart: always
+    restart: unless-stopped
     ports:
-      - '15004:8000'
+      - '8000:8000'
     volumes:
       - ./data:/app-dist
     environment:

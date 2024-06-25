@@ -1,12 +1,12 @@
 version: "3"
 services:
   wewe-rss-sqlite:
+    image: cooderl/wewe-rss-sqlite:latest
     container_name: wewe-rss
-    ports:
-        - 15009:4000
     environment:
         - DATABASE_TYPE=sqlite
         - AUTH_CODE=authcode
+    ports:
+      - "4000:4000"
     volumes:
         - ./data:/app/data
-    image: cooderl/wewe-rss-sqlite:latest

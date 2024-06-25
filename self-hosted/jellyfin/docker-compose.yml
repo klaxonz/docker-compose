@@ -5,10 +5,9 @@ services:
     container_name: jellyfin
     stdin_open: true
     tty: true
-    restart: always
+    restart: unless-stopped
     ports:
-      - 9004:8096
+      - "8096:8096"
     volumes:
       - ./config:/config
       - ./media:/media
-    privileged: true

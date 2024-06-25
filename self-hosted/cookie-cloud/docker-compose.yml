@@ -3,8 +3,8 @@ services:
   cookiecloud:
     image: easychen/cookiecloud:latest
     container_name: cookiecloud-app
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./data:/data/api/data
     ports:
-      - 15005:8088
+      - "8088:8088"

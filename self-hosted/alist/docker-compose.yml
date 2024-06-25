@@ -6,6 +6,6 @@ services:
     container_name: alist
     restart: unless-stopped
     volumes:
-      - ./alist-data:/opt/alist/data
+      - ./alist/data:/opt/alist/data
     ports:
-      -  15244:5244
+      - "5244:5244"

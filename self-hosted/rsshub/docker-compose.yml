@@ -2,13 +2,10 @@ version: '3'
 
 services:
   rsshub:
-    # two ways to enable puppeteer:
-    # * comment out marked lines, then use this image instead: diygod/rsshub:chromium-bundled
-    # * (consumes more disk space and memory) leave everything unchanged
     image: diygod/rsshub:chromium-bundled
-    restart: always
+    restart: unless-stopped
     ports:
-        - '15011:1200'
+        - '1200:1200'
     environment:
       NODE_ENV: production
       CACHE_TYPE: redis
@@ -20,6 +17,6 @@ services:
 
   redis:
     image: redis:alpine
-    restart: always
+    restart: unless-stopped
     volumes:
-      - ./redis-data:/data
+      - ./redis/data:/data

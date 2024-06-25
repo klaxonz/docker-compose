@@ -1,8 +1,8 @@
 version: "3"
 services:
   yacd:
-    ports:
-        - 15012:80
-    container_name: yacd
     image: haishanh/yacd
-    restart: always
+    container_name: yacd
+    restart: unless-stopped
+    ports:
+      - "80:80"
